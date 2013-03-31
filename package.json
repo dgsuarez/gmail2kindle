@@ -1,0 +1,22 @@
+{
+  "name": "gmail2kindle",
+  "preferGlobal": true,
+  "version": "0.0.1",
+  "author": "Diego Guerra <diego.guerra.suarez@gmail.com>",
+  "description": "send docs to kindle using your gmail account",
+  "bin": {
+    "liberbank2ledger": "./bin/gmail2kindle"
+  },
+  "main": "./lib/gmail2kindle",
+  "keywords": [
+    "cli",
+    "kindle"
+  ],
+  "dependencies" : {
+    "underscore":  "*",
+    "nodemailer":  "*",
+    "tmp":  "*",
+    "read": "*"
+  },
+  "license": "MIT"
+}

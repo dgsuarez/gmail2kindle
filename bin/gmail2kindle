@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+var argv = require("optimist")
+  .demand("from")
+  .alias("from", "f")
+  .describe("from", "gmail address to send from")
+  .demand("to")
+  .alias("to", "t")
+  .describe("to", "kindle addres to send files to")
+  .demand(1)
+  .argv
+
+var m2k = require("../lib/gmail2kindle");
+
+var from = argv.from;
+var to = argv.to;
+var files = argv._;
+ 
+m2k.main(from, to, files)

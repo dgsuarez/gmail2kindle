@@ -5,7 +5,7 @@
   "author": "Diego Guerra <diego.guerra.suarez@gmail.com>",
   "description": "send docs to kindle using your gmail account",
   "bin": {
-    "liberbank2ledger": "./bin/gmail2kindle"
+    "gmail2kindle": "./bin/gmail2kindle"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "kindle"
   ],
   "dependencies" : {
-    "underscore":  "*",
+    "optimist": "*",
     "nodemailer":  "*",
     "tmp":  "*",
     "read": "*"

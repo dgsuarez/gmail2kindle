@@ -1,6 +1,7 @@
 spawn = require('child_process').spawn
 nodemailer = require 'nodemailer'
 tmp = require 'tmp'
+fs = require 'fs'
 
 convert = (file, callback) ->
   tmp.file postfix: ".mobi", (err, dest) ->
@@ -12,5 +13,15 @@ convert = (file, callback) ->
       err = code != 0 ? "error processing" : null
       callback(err, dest)
 
-convert "sample.epub", (err, conv_file) -> console.log conv_file
-    
+mail_file = (transport, to, path, callback) ->
+  fs.readFile path, (err, contents) ->
+    opts =
+      to: to
+      subject: "new document"
+      attachments: [
+        filename: "document.mobi"
+        contents: contents
+      ]
+    transport.sendMail opts, (err, resp) ->
+      callback(err, resp)
+

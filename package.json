@@ -7,6 +7,10 @@
   "bin": {
     "liberbank2ledger": "./bin/gmail2kindle"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dgsuarez/gmail2kindle"
+  },
   "main": "./lib/gmail2kindle",
   "keywords": [
     "cli",

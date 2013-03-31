@@ -8,6 +8,8 @@ lib/*
 *.out
 *.pid
 *.gz
+*.epub
+*.mobi
 
 pids
 logs

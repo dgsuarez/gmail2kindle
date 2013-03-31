@@ -2,6 +2,7 @@ spawn = require('child_process').spawn
 nodemailer = require 'nodemailer'
 tmp = require 'tmp'
 fs = require 'fs'
+read = require 'read'
 
 convert = (file, callback) ->
   tmp.file postfix: ".mobi", (err, dest) ->
@@ -46,3 +47,19 @@ send_files = (transport, to, files) ->
     transport.close() if file_count <= 0
   convert_and_send(transport, to, file, on_sent) for file in files
 
+with_transport = (from, callback) ->
+  console.log("GMail Password:")
+  read promt: "Password", silent: true, (err, passw) ->
+    console.log "processing..."
+    transport = nodemailer.createTransport "SMTP",
+      service: "Gmail",
+      auth:
+        user: from
+        pass: passw
+    callback(transport)
+
+main = (from, to, files) ->
+  with_transport from, (transport) ->
+    send_files transport, to, files
+
+exports.main = main

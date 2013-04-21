@@ -10,5 +10,5 @@ Basic usage is as follows:
 
 Dependencies
 ------------
-Besides the npm requirements [Calibre's](http://calibre-ebook.com/) `ebook-convert` is needed.
+Besides the requirements listed in the package, [Calibre's](http://calibre-ebook.com/) `ebook-convert` is needed.
 

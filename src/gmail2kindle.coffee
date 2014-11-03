@@ -5,9 +5,15 @@ fs = require 'fs'
 read = require 'read'
 
 convert = (file, callback) ->
+  if file.match /.*mobi$/
+    callback(null, file)
+    return
   tmp.file postfix: ".mobi", (err, dest) ->
     if err
       callback(err, null)
+      return
+    if file.match /.*mobi$/
+      callback(err, file)
       return
     p = spawn "ebook-convert", [file, dest]
     p.stdout.on "data", (data) -> console.log('' + data)
